@@ -1,0 +1,17 @@
+html {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#root {
+    display: table;
+    margin: 100px auto;
+}
+
+.btn:active, .btn:focus, .btn:active:focus {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+.btn + .btn {
+    margin-left: 5px;
+}
