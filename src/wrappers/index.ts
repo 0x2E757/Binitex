@@ -1,5 +1,7 @@
-import * as example from "./example";
+import * as data from "./data";
+import * as filters from "./filters";
 
 export default {
-    ...example,
+    data,
+    filters,
 };

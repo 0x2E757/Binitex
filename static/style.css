@@ -1,17 +1,74 @@
 html {
     font-family: "Segoe UI", Arial, sans-serif;
+    height: 100%;
 }
 
-#root {
+body {
+    height: 100%;
     display: table;
-    margin: 100px auto;
 }
 
-.btn:active, .btn:focus, .btn:active:focus {
+html,
+body {
+    background: #f3f3f0;
+}
+
+p {
+    margin: 0;
+}
+
+body>div {
+    display: table-row;
+}
+
+.main-container {
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 10%),
+        0px 0px 0px 1px rgb(0 0 0 / 2%);
+    border-radius: 5px;
+}
+
+.content-table-header {
+    background: #deecf9;
+    border-radius: 5px 5px 0 0;
+}
+
+.content-table-container {
+    background: #f3f8fd;
+    border-radius: 0 0 5px 5px;
+}
+
+.hidden-tab {
+    height: 0px;
+    overflow: hidden;
+}
+
+.btn:active,
+.btn:focus,
+.btn:active:focus {
     outline: none !important;
     box-shadow: none;
- }
+}
 
-.btn + .btn {
-    margin-left: 5px;
+.MuiInputBase-root {
+    background-color: rgb(255 255 255 / 65%);
+}
+
+.MuiFormControl-root .MuiInputBase-input.MuiOutlinedInput-input {
+    padding: 8px 0 8px 12px !important;
+}
+
+.MuiFormControl-root .MuiInputBase-root.MuiOutlinedInput-root {
+    padding-right: 12px !important;
+}
+
+.MuiFormControl-root .MuiFormLabel-root.MuiInputLabel-root:not(.Mui-focused):not(.MuiFormLabel-filled) {
+    -webkit-transform: translate(12px, 8px) scale(1);
+    -moz-transform: translate(12px, 8px) scale(1);
+    -ms-transform: translate(12px, 8px) scale(1);
+    transform: translate(12px, 8px) scale(1);
+}
+
+.MuiFormControl-root .MuiAutocomplete-inputRoot {
+    padding: 0 !important;
 }

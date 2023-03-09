@@ -13,8 +13,15 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 
-<body>
-    <div id="root"></div>
+<body class="m-auto">
+    <div style="height: 25%;"></div>
+    <div id="root">
+        <div class="main-container p-3 m-3 mt-5 d-flex align-items-center">
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+            <h3 class="my-auto ps-3">Initializing app</h3>
+        </div>
+    </div>
+    <div style="height: 75%;"></div>
     <script type="text/javascript" src="{{template:app}}" defer></script>
 </body>
 
