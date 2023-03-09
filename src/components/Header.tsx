@@ -40,6 +40,10 @@ export default class Header extends React.PureComponent {
     onResetClick = () => {
         w.filters.startDate.set(w.data.minDate.emit());
         w.filters.endDate.set(w.data.maxDate.emit());
+        this.setState({
+            startErrors: [],
+            endErrors: [],
+        });
     }
 
     render = () => {

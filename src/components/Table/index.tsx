@@ -1,8 +1,6 @@
 import _ from "lodash";
 import React from "react";
 import Pateo from "pateo";
-import CountrySelect from "./CountrySelect";
-import FieldSelect from "./FieldSelect";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -11,6 +9,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import Stack from "@mui/material/Stack";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import CountrySelect from "./CountrySelect";
+import FieldSelect from "./FieldSelect";
 import { FormGroup, FormElement } from "../";
 import w from "../../wrappers";
 

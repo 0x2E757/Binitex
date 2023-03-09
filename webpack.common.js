@@ -37,6 +37,11 @@ const externals = {
         file: "./lodash.min.js",
         fileDev: "./lodash.js",
     },
+    "moment": {
+        scope: "moment",
+        file: "./min/moment-with-locales.js",
+        fileDev: "./min/moment-with-locales.min.js",
+    }
 };
 
 utils.ensureDirectoryExists(directories.dist);
