@@ -1,9 +1,6 @@
 {
   "name": "binitex",
   "version": "1.0.0",
-  "browser": {
-    "[module-name]": false   
-  },
   "scripts": {
     "start": "npm run build:dev",
     "build": "npm run build:prod",
