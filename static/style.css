@@ -72,3 +72,25 @@ body>div {
 .MuiFormControl-root .MuiAutocomplete-inputRoot {
     padding: 0 !important;
 }
+
+.source-link {
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    opacity: 0.35;
+    transition: 0.3s linear;
+    font-size: 80%;
+}
+
+.source-link:hover {
+    opacity: 1;
+    color: #2f4d6a;
+    text-decoration: underline;
+}
+
+.source-link img {
+    height: 14px;
+    width: 14px;
+    margin-right: 4px;
+}
