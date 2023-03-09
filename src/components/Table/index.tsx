@@ -14,11 +14,6 @@ import FieldSelect from "./FieldSelect";
 import { FormGroup, FormElement } from "../";
 import w from "../../wrappers";
 
-enum TableKind {
-    standart = "Standart",
-    extended = "Extended",
-}
-
 const columnsStandart: GridColDef[] = [
     { field: "country", headerName: "Country", flex: 100, type: "string", },
     { field: "cases", headerName: "Cases", flex: 100, type: "number", },
@@ -44,8 +39,8 @@ const columnsExtended: GridColDef[] = [
 ];
 
 const columns = {
-    [TableKind.standart]: columnsStandart,
-    [TableKind.extended]: columnsExtended,
+    [w.settings.TableKind.standart]: columnsStandart,
+    [w.settings.TableKind.extended]: columnsExtended,
 };
 
 const rowTemplate = {
@@ -127,20 +122,16 @@ const rows = new Pateo.DynamicWrapper(
     }
 );
 
-@Pateo.subscribe(filters.country, filters.fieldName, filters.fieldMin, filters.fieldMax, rows)
+@Pateo.subscribe(w.settings.tableKind, filters.country, filters.fieldName, filters.fieldMin, filters.fieldMax, rows)
 export default class Table extends React.PureComponent {
 
-    state = {
-        tableKind: TableKind.standart,
-    }
-
     onTableKindChange = (event: React.ChangeEvent<HTMLInputElement>, value: string) => {
-        if (_.filter(columns[value as TableKind], { field: filters.fieldName.emit() }).length === 0) {
+        if (_.filter(columns[value as keyof typeof columns], { field: filters.fieldName.emit() }).length === 0) {
             filters.fieldName.set("");
             filters.fieldMin.set("");
             filters.fieldMax.set("");
         }
-        this.setState({ tableKind: value });
+        w.settings.tableKind.set(value as keyof typeof columns);
     }
 
     render = () => {
@@ -161,7 +152,7 @@ export default class Table extends React.PureComponent {
                                 <FieldSelect
                                     label="Filter by field"
                                     sx={{ width: 225 }}
-                                    options={_.takeRight(columns[this.state.tableKind], columns[this.state.tableKind].length - 1)}
+                                    options={_.takeRight(columns[w.settings.tableKind.emit()], columns[w.settings.tableKind.emit()].length - 1)}
                                     value={filters.fieldName.emit()}
                                     onChange={event => filters.fieldName.set(event.target.value)}
                                 />
@@ -209,10 +200,10 @@ export default class Table extends React.PureComponent {
                         />
                     </FormElement>
                 </FormGroup>
-                <Box sx={{ backgroundColor: "#fff", width: this.state.tableKind === TableKind.standart ? 900 : 1400, mt: 2 }}>
+                <Box sx={{ backgroundColor: "#fff", width: w.settings.tableKind.emit() === w.settings.TableKind.standart ? 900 : 1400, mt: 2 }}>
                     <DataGrid
                         rows={rows.emit()}
-                        columns={columns[this.state.tableKind]}
+                        columns={columns[w.settings.tableKind.emit()]}
                         rowHeight={45}
                         initialState={{
                             pagination: { paginationModel: { pageSize: 10 } },
@@ -232,7 +223,7 @@ export default class Table extends React.PureComponent {
                 </Box>
                 <FormGroup>
                     <RadioGroup
-                        value={this.state.tableKind}
+                        value={w.settings.tableKind.emit()}
                         onChange={this.onTableKindChange}
                         row
                     >
@@ -243,15 +234,15 @@ export default class Table extends React.PureComponent {
                             <FormElement>
                                 <FormControlLabel
                                     control={<Radio />}
-                                    value={TableKind.standart}
-                                    label={TableKind.standart}
+                                    value={w.settings.TableKind.standart}
+                                    label={w.settings.TableKind.standart}
                                 />
                             </FormElement>
                             <FormElement>
                                 <FormControlLabel
                                     control={<Radio />}
-                                    value={TableKind.extended}
-                                    label={TableKind.extended}
+                                    value={w.settings.TableKind.extended}
+                                    label={w.settings.TableKind.extended}
                                 />
                             </FormElement>
                         </div>

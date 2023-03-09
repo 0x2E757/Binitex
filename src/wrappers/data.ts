@@ -36,8 +36,8 @@ export const recordsFormatted = new Pateo.DynamicWrapper(recordsRaw, (recordsRaw
         date: moment(item.dateRep, "DD/MM/YYYY"),
         territory: item.countriesAndTerritories.replace(/_/g, " "),
         code: item.geoId,
-        cases: item.cases,
-        deaths: item.deaths,
+        cases: Math.max(item.cases, 0),
+        deaths: Math.max(item.deaths, 0),
         population: item.popData2019,
     })).filter(item => item.code.length == 2)
 });
