@@ -197,6 +197,7 @@ export default class Table extends React.PureComponent {
                                 filters.fieldMin.set("");
                                 filters.fieldMax.set("");
                             }}
+                            disabled={filters.country.eq("") && filters.fieldName.eq("")}
                         />
                     </FormElement>
                 </FormGroup>
